@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if request.user.is_authenticated %}
+    <p>Hi, {{request.user.username}}</p>
+    <a href="{% url 'logout_page' %}">Logout</a>
+{% else %}
+    <a href="{% url 'login_page' %}">Login</a>
+    <a href="{% url 'register_myuser_page' %}">Register</a>
+{% endif %}
+<p>HOMEPAGE</p>
+{% if request.user.is_authenticated and request.user.pagerandcode is not None %}
+    <a href="{% url 'show_user_content' request.user.username request.user.pagerandcode.random_code %}">My Content</a>
+{% endif %}
+
+</body>
+</html>

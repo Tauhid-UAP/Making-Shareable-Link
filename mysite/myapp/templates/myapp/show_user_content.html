@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--    Hello-->
+
+    {% if logged_in %}
+        <p>Hi, {{ myuser.username }}.</p>
+    {% endif %}
+
+    {% for mycontent in mycontent_list %}
+        <h1>{{mycontent.content}}</h1>
+    {% endfor %}
+
+</body>
+</html>
